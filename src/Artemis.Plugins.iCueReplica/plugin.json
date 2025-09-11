@@ -1,0 +1,15 @@
+{
+    "Guid": "823E8D6F-22BB-4690-A871-A8C872FF7FE5",
+    "Name": "Plugin Name",
+    "Description": "Plugin Description",
+    "Author": "",
+    "Website": "",
+    "Repository": "",
+    "Icon": "QuestionMark",
+    "Version": "1.0.0.0",
+    "Main": "Artemis.Plugins.iCueReplica.dll",
+    "AutoEnableProperties": true,
+    "RequiresAdmin": false,
+    "Platforms": "Windows,Linux,OSX",
+    "Api": "1.0.0"
+}
