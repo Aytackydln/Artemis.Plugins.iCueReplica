@@ -23,6 +23,8 @@ public class IcueGsiModule : Module<IcueGameStateData>
     private void IcueServerOnGameConnected(object? sender, GameHandler e)
     {
         var gsiHandler = e.GsiHandler;
+        e.GsiHandler.GameConnected += GsiHandlerOnGameConnected;
+        
         gsiHandler.StateAdded += GsiHandlerOnStateAdded;
         gsiHandler.StateRemoved += GsiHandlerOnStateRemoved;
         gsiHandler.StatesCleared += GsiHandlerOnStatesCleared;
@@ -30,9 +32,12 @@ public class IcueGsiModule : Module<IcueGameStateData>
         gsiHandler.EventAdded += GsiHandlerOnEventAdded;
         gsiHandler.EventsCleared += GsiHandlerOnEventsCleared;
 
-        var gamePid = e.GamePid;
-        var processInfo = ProcessMonitor.Processes.FirstOrDefault(p => p.ProcessId == gamePid);
-        DataModel.ConnectedGame = processInfo.ProcessName;
+        DataModel.IsGameConnected = true;
+    }
+
+    private void GsiHandlerOnGameConnected(object? sender, IcueGsiConnectionEventArgs e)
+    {
+        DataModel.ConnectedGame = e.GameName;
         DataModel.IsGameConnected = true;
     }
 
