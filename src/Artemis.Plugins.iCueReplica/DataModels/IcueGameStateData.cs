@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Artemis.Core;
 using Artemis.Core.Modules;
 using JetBrains.Annotations;
@@ -11,14 +10,15 @@ public class IcueGameStateData : DataModel
 {
     public bool IsGameConnected { get; set; }
     public string ConnectedGame { get; set; } = string.Empty;
-    public HashSet<string> GameStates { get; set; } = [];
-    public HashSet<string> GameEvents { get; set; } = [];
+    public List<string> GameStates { get; set; } = [];
+    public List<string> GameEvents { get; set; } = [];
     
     public DataModelEvent<IcueGameStateEventArgs> GameEventTriggered { get; set; } = new();
     
     public void OnGameEventTriggered(string eventName)
     {
         GameEventTriggered.Trigger(new IcueGameStateEventArgs(eventName));
+        GameEventTriggered.Reset();
     }
 }
 
