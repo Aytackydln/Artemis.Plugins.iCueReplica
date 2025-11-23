@@ -5,7 +5,7 @@
     "Author": "Aytackydln",
     "Repository": "https://github.com/Aytackydln/Artemis.Plugins.iCueReplica",
     "Icon": "QuestionMark",
-    "Version": "0.1.2.0",
+    "Version": "0.2.0.0",
     "Main": "Artemis.Plugins.iCueReplica.dll",
     "AutoEnableProperties": true,
     "RequiresAdmin": false,
